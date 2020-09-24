@@ -12,15 +12,15 @@ This is a Game of Thrones inspired REST API game. You are responsible to create 
 
 You have to create endpoints (as many as you consider) to support the following functionality:
 
-1. List all players.
-2. Create player: adds a new player to data source.
-3. Get player by id: returns the player for the given id.
-4. Arm a player with an object in its bag.
-5. Kill a player: sets player health to 0.
-6. Create object: adds a new object to data source.
-7. Get object by id: returns the object for the given id.
-8. Upgrade object: increase/descrease the value of the object given by id with a new value
-9. Destroy object: remove an object from available objects
+1. List all players.:black_square_button:
+2. Create player: adds a new player to data source.:black_square_button:
+3. Get player by id: returns the player for the given id.:black_square_button:
+4. Arm a player with an object in its bag.:black_square_button:
+5. Kill a player: sets player health to 0.:black_square_button:
+6. Create object: adds a new object to data source.:black_square_button:
+7. Get object by id: returns the object for the given id.:black_square_button:
+8. Upgrade object: increase/descrease the value of the object given by id with a new value.:black_square_button:
+9. Destroy object: remove an object from available objects.:black_square_button:
 
 **Bonus:**
 
