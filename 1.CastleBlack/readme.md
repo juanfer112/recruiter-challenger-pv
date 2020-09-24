@@ -15,8 +15,8 @@ You have to create endpoints (as many as you consider) to support the following 
 1. List all players.:ballot_box_with_check:
 2. Create player: adds a new player to data source.:ballot_box_with_check:
 3. Get player by id: returns the player for the given id.:ballot_box_with_check:
-4. Arm a player with an object in its bag.:black_square_button:
-5. Kill a player: sets player health to 0.:black_square_button:
+4. Arm a player with an object in its bag.:ballot_box_with_check:
+5. Kill a player: sets player health to 0.:ballot_box_with_check:
 6. Create object: adds a new object to data source.:ballot_box_with_check:
 7. Get object by id: returns the object for the given id.:ballot_box_with_check:
 8. Upgrade object: increase/descrease the value of the object given by id with a new value.:black_square_button:
