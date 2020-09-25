@@ -4,9 +4,15 @@ This is a Game of Thrones inspired REST API game. You are responsible to create 
 
 ## Your tasks
 
-1. Implement the endpoints in **./src/api.js** file with the most suitable code for players and objects management REST API. You will find detailed instructions in this file.
+1. Implement the endpoints in **./src/api.js** file with the most suitable code for players and objects management REST API. You will find detailed instructions in this file.:ballot_box_with_check:
 2. Write some tests for your code. Use test folder for this purpose.
-3. Answer all commented questions you find in the code.
+3. Answer all commented questions you find in the code.:ballot_box_with_check:
+
+**QUESTION: why this endpoint blocks the app(router.js)?**
+there is not answer to client, `res` does not have a property o method called body,body belong to req, if we wish data to client with res could use `res.send()`
+
+**app.disable("x-powered-by"); QUESTION: any reason is this line here?**
+Hide to users the header information of the web application, we are not using express
 
 ### Required endpoints
 
