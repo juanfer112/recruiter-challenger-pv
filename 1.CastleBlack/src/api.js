@@ -23,6 +23,21 @@ api.get("/objects/:objectId", function(req, res) {
   res.json(object);
 });
 
+// ENDPOINT: UPGRADE OBJECT
+api.put("/objects", function(req, res){
+  const object = req.body;
+  objectService.updateObject(object);
+  res.json({message:"object updated"});
+});
+
+// ENDPOINT: DESTROY OBJECT
+api.delete("/objects/:objectId", function(req,res){
+  objectService.destroyObject(req.params.objectId);
+  res.json({message: "object has been destroyed"});
+});
+
+
+
 //**************PLAYERS***************************/
 // EXAMPLE ENDPOINT: LIST ALL PLAYER
 api.get("/players", function(req, res) {
@@ -52,7 +67,7 @@ api.put("/players/arm/:playerId/:objectId", function(req, res) {
 // ENDPOINT: KILL A PLAYER
 api.delete("/players/:playerId", function(req, res) {     
   const player = playerService.killPlayer(req.params.playerId);
-  res.json({"msg":"you killed a player","player alive":player});
+  res.json({"msg":"you killed a player","player dead":player});
 });
 
 

@@ -19,9 +19,9 @@ const armPlayer = (playerId,objectId)=>{
     gameDb.players.forEach(item=> {item = item.id == item.id ? player : item});
     return gameDb.players
 }
-const killPlayer = (id) =>{
-   gameDb.players = gameDb.players.filter(item => item.id != id);
-   return gameDb.players
+const killPlayer = (id) => {
+    gameDb.players.forEach(item => item.id == id ? item.health = 0 : item.health)
+    return gameDb.players.filter(player=>player.health == 0);
 }
 
 

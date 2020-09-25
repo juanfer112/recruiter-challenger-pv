@@ -19,8 +19,8 @@ You have to create endpoints (as many as you consider) to support the following 
 5. Kill a player: sets player health to 0.:ballot_box_with_check:
 6. Create object: adds a new object to data source.:ballot_box_with_check:
 7. Get object by id: returns the object for the given id.:ballot_box_with_check:
-8. Upgrade object: increase/descrease the value of the object given by id with a new value.:black_square_button:
-9. Destroy object: remove an object from available objects.:black_square_button:
+8. Upgrade object: increase/descrease the value of the object given by id with a new value.:ballot_box_with_check:
+9. Destroy object: remove an object from available objects.:ballot_box_with_check:
 
 **Bonus:**
 
