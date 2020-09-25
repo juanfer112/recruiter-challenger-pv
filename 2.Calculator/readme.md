@@ -4,11 +4,11 @@ In this exercise you are given the legacy code of Payvision Calculator web app. 
 
 ## Your tasks
 
-1. Code review: please list all good/bad practices you find in this application.
-2. It seems the app is buggy... Could you fix it?
-3. Add divide and multiply operations.
-4. How would do you test this app?
-5. Can you improve the UI/UX?
+1. Code review: please list all good/bad practices you find in this application.:black_square_button:
+2. It seems the app is buggy... Could you fix it?.:black_square_button:
+3. Add divide and multiply operations.:black_square_button:
+4. How would do you test this app?.:black_square_button:
+5. Can you improve the UI/UX?.:black_square_button:
 
 You are allowed to change as much code as you consider.
 
