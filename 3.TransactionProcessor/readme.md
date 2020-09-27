@@ -4,10 +4,10 @@ We want to develop a new transactions processor library to complete online payme
 
 ## Your tasks
 
-- Have a look to the code. Do you miss any class?
-- Complete **./src/TransactionProcessor.js** class.
-- Make sure all tests pass. Would you include more tests?
-- Do you know the pattern used by TransactionProcessor class?
+- Have a look to the code. Do you miss any class?:black_square_button:
+- Complete **./src/TransactionProcessor.js** class.:black_square_button:
+- Make sure all tests pass. Would you include more tests?:black_square_button:
+- Do you know the pattern used by TransactionProcessor class?:black_square_button:
 
 We strongly recommend the use of: map, filter and reduce (among others).
 
