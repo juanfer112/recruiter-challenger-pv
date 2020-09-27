@@ -3,6 +3,7 @@ const TransactionProcessor = require("../src/TransactionProcessor");
 
 let processor = new TransactionProcessor(transactions);
 
+
 describe("TransactionProcessor.isValidTransaction method", () => {
   test("isValidTransaction true - ok", () => {
     expect(TransactionProcessor.isValidTransaction(transactions[0])).toBe(true);

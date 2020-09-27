@@ -11,16 +11,45 @@ class TransactionProcessor {
     );
   }
 
-  // Check valid transactions rules
+ // Check valid transactions rules
   static isValidTransaction(transaction) {
-    // ...
-    return true;
+    // ... Verifica que una transaccion no sea entero y menor a cero
+    const isValid = (TransactionProcessor.isValidAmount(transaction) && 
+    TransactionProcessor.isValidBrand(transaction) &&
+    TransactionProcessor.isValidCurrency(transaction) &&
+    TransactionProcessor.isValidID(transaction)); //!Number.isInteger(transaction.amount) && (transaction.amount >= 0);
+
+    return isValid;
   }
 
   // Remove invalid transactions
   filterInvalidTransactions() {
     // ...
+    this.transactions = this.transactions.filter(transaction => {
+      return !TransactionProcessor.isValidTransaction(transaction);
+      /*return (TransactionProcessor.isValidTransaction(transaction) && 
+        this.isValidBrand(transaction) &&  
+        this.isValidCurrency(transaction) && 
+        this.isValidID(transaction)
+      );*/
+    });
     return this;
+  }
+
+  static isValidAmount(transaction) {
+    return (!Number.isInteger(transaction.amount) && (transaction.amount >= 0));
+  }
+  
+  static isValidBrand(transaction){
+    return (transaction.brand == transaction.brand.toLowerCase());
+  }
+
+  static isValidCurrency(transaction){
+    return (transaction.currency == transaction.currency.toUpperCase());
+  }
+
+  static isValidID(transaction){
+    return (transaction.id > 0);
   }
 
   // Return transactions of given currency
