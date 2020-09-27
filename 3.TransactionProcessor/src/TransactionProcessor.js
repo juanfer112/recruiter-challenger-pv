@@ -67,13 +67,30 @@ class TransactionProcessor {
   // BONUS:
   // Apply multiple filters. Filters parameter should be an array of functions (predicates)
   filterTransaction(filters) {
-    // ...
+    // Filter and get the valid transaction 
+    this.transactions = this.transactions.filter((transaction) => {
+      //maping throught array of function  
+      let mapFilter = filters.map((filter) => filter(transaction));
+      //[true, true, true] -- TRUE
+      //[true, false, true] -- FALSE
+      return mapFilter.reduce((acc, el) => acc && el)
+    });
     return this;
   }
 
   // Return the total amount of current transactions array
-  sum() {
-    return 0;
+  sum() {    
+    const total = parseFloat(this.transactions
+    .filter(transaction => TransactionProcessor.isValidTransaction(transaction))
+    .reduce((acc, el) => acc + el.amount, 0)
+    .toFixed(2));
+    
+    /*const total = this.transactions
+      .filter(transaction => TransactionProcessor.isValidTransaction(transaction))
+      .map(transaction => transaction.amount)
+      .reduce((a,b) => a + b, 0)
+      ;*/
+    return total;
   }
 }
 
