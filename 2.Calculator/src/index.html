@@ -11,27 +11,35 @@
 <body>
     <h2>Payvision Calculator</h2>
         <div id="calculator" class="calculator">
-            <button id="clear" class="clear">C</button>
+            <div class="calculator-grid">
+                <div class="output">
+                    <div id="preViewer" class="prev-display">0</div>
+                    <div id="viewer" data-current-ops class="current-display">0</div>
+                </div>
+            
+                <button id="clear" class="clear span-two">C</button>
+                <button id="delete" class="delete"><</button>
+                <button data-ops="/" class="ops">&divide;</button>
 
-            <div id="viewer" class="viewer">0</div>
+                <button id="btn" class="num" data-num="7">7</button>
+                <button id="btn" class="num" data-num="8">8</button>
+                <button id="btn" class="num" data-num="9">9</button>
+                <button data-ops="x" class="ops">x</button>
+    
+                <button id="btn" class="num" data-num="4">4</button>
+                <button id="btn" class="num" data-num="5">5</button>
+                <button id="btn" class="num" data-num="6">6</button>
+                <button data-ops="-" class="ops">-</button>
 
-            <button id="btn" class="num" data-num="9">9</button>
-            <button id="btn" class="num" data-num="8">8</button>
-            <button id="btn" class="num" data-num="7">7</button>
-            <button data-ops="plus" class="ops">+</button>
-
-            <button id="btn" class="num" data-num="4">4</button>
-            <button id="btn" class="num" data-num="5">5</button>
-            <button id="btn" class="num" data-num="6">6</button>
-            <button data-ops="minus" class="ops">-</button>
-
-            <button id="btn" class="num" data-num="0">0</button>
-            <button id="btn" class="num" data-num="1">1</button>
-            <button id="btn" class="num" data-num="2">2</button>
-
-            <button id="btn" class="num" data-num="3">3</button>
-            <button id="btn" class="num" data-num=".">.</button>
-            <button id="equals" class="equals" data-result="">=</button>
+                <button id="btn" class="num" data-num="1">1</button>
+                <button id="btn" class="num" data-num="2">2</button>
+                <button id="btn" class="num" data-num="3">3</button>
+                <button data-ops="+" class="ops">+</button>
+                
+                <button id="btn" class="num" data-num=".">.</button>
+                <button id="btn" class="num" data-num="0">0</button>  
+                <button id="equals" class="equals span-two" data-result="">=</button> 
+            </div>
         </div>
     </body>
 </html>

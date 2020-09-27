@@ -1,5 +1,3 @@
-
-
 window.onload = () =>{
 initCalculator()
 }
@@ -7,72 +5,125 @@ initCalculator()
 function initCalculator() {
     // Shortcut to get elements
     var el = function(element) {
-      if (element.charAt(0) === "#") {
+        
+    if (element.charAt(0) === "#") {
         // If passed an ID...
         return document.querySelector(element); // ... returns single element
-      }
-
+    }
       return document.querySelectorAll(element); // Otherwise, returns a nodelist
+
     };
 
     // Variables
     var viewer = el("#viewer"), // Calculator screen where result is displayed
-      equals = el("#equals"), // Equal button
-      nums = el(".num"), // List of numbers
-      ops = el(".ops"), // List of operators
-      theNum = "", // Current number
-      oldNum = "", // First number
-      resultNum, // Result
-      operator; // Batman
+        preViewer = el("#preViewer"), // Calculator screen where previous result is displayed   
+        equals = el("#equals"), // Equal button
+        del = el("#delete"), // Delete button
+        clear = el("#clear"), // Clear button
+        nums = el(".num"), // List of numbers
+        ops = el(".ops"), // List of operators
+        theNum = "", // Current number
+        oldNum = "", // First number
+        opsValue=[], // Value of operator
+        resultNum, // Result
+        operator; // Batman
+        
 
-    // When: Number is clicked. Get the current number selected
-    var setNum = function() {
-      if (resultNum) {
-        // If a result was displayed, reset number
-        theNum = this.getAttribute("data-num");
-        resultNum = "";
-      } else {
-        // Otherwise, add digit to previous number (this is a string!)
-        theNum += this.getAttribute("data-num");
-      }
+    //When: operation is valid , let opertion carry on.
+    var validOperation =(atribute)=>{ 
+        if (atribute == '.' && theNum.includes(".")){// 
+            return false
+        }else if (theNum.length == 0 && opsValue.includes(atribute) && isNaN(parseInt(lastValue()))){
+            return false
+        }else if ( theNum.length > 0 && opsValue.includes(atribute) && isNaN(parseInt(lastValue()))){
+            return false
+        }else{
+            return true
+        }
+    }
 
-      viewer.innerHTML = theNum; // Display current number
+    // When: Number is clicked. add the current number selected
+    var appendNumber = function(){
+        var atribute=this.getAttribute("data-num")
+        
+        if (theNum=="0"){
+         // If first current digit is zero , digit is not added 
+            theNum ="";
+        }
+        if (!validOperation(atribute)) {
+        // If a current digit is a dot and new number has dot, digit is not added 
+            theNum = theNum
+        }else {
+            theNum += atribute;
+        }
+     
+    preViewer.innerHTML = theNum; // Display on screen preview current digit number
+    
+
     };
 
-    // When: Operator is clicked. Pass number to oldNum and save operator
-    var moveNum = function() {
-      oldNum = theNum;
-      theNum = "";
-      operator = this.getAttribute("data-ops");
-
-      equals.setAttribute("data-result", ""); // Reset result in attr
+    // When: Operators is clicked. add the valid operation.  
+    var appendOperation = function(){
+        let atribute=this.getAttribute("data-ops")
+        if (!validOperation(atribute)) {
+            // If first digit is an operator sign , set digit to zero
+            theNum ="0";
+        }
+        else if (!validOperation(atribute)){
+            // If there is an operator sign , set the operator a current digit operator 
+             theNum = theNum.substring(0,theNum.length-1) 
+             theNum += atribute; 
+        }
+        else {
+            // Otherwise, add digit to previous number (this is a string!)
+             theNum += atribute;  
+        }
+        preViewer.innerHTML = theNum; // Display current operation
     };
 
-    // When: Equals is clicked. Calculate result
-    var displayNum = function() {
-      // Convert string input to numbers
-      oldNum = parseFloat(oldNum);
-      theNum = parseFloat(theNum);
+    // When: Get the last digit added on preview display.
+    var lastValue = function(){
+        return theNum.substring(theNum.length-1)
+    }
 
-      // Perform operation
-      switch (operator) {
-        case "plus":
-          resultNum = oldNum + theNum;
-          break;
+      // When: Delete button is pressed. Delete digit by digit
+    var delDigit = function() {
+        if(theNum.length==1){
+            theNum="0"
+            preViewer.innerHTML = theNum; // when: delete all digits  display 0
+        }else{
+            theNum= theNum.slice(0,-1)
+            preViewer.innerHTML = theNum; // Display current operation by deleted digit
+        }
+};
 
-        case "minus":
-          resultNum = oldNum - theNum;
-          break;
+// When: Equals is clicked. Calculate result
+    var mathOperation = function(){
+        // Variables
+        var plus = theNum.indexOf('+'), //Get position operation sum sign
+        minus = theNum.indexOf('-'), //Get position operator substraction sign
+        multiply = theNum.indexOf('x'), //Get position operator multiply sign
+        divide = theNum.indexOf('/'); //Get position operator divide sign
 
-        // If equal is pressed without an operator, keep number and continue
-        default:
-          resultNum = theNum;
-      }
+        // Perform operation
+        if (plus !=-1){
+            arr=theNum.split('+',2)
+            resultNum= parseFloat( arr[0]) + parseFloat(arr[1]);
+        }else if (minus !=-1){
+            arr=theNum.split('-',2)
+            resultNum= parseFloat( arr[0])- parseFloat(arr[1]);
+        }else if (multiply !=-1){
+            arr=theNum.split('x',2)
+            resultNum= parseFloat( arr[0]) * parseFloat(arr[1]);
+        }else if (divide !=-1){
+            arr=theNum.split('/',2)
+            resultNum= parseFloat( arr[0])/parseFloat(arr[1]);
+        }
 
-      // If NaN or Infinity returned
+         // If NaN or Infinity returned
       if (!isFinite(resultNum)) {
         if (isNaN(resultNum)) {
-          // If result is not a number; set off by, eg, double-clicking operators
+          // If result is not a number; set off by,
           resultNum = "You broke it!";
         } else {
           // If result is infinity, set off by dividing by zero
@@ -81,38 +132,45 @@ function initCalculator() {
         }
       }
 
-      // Display result, finally!
-      viewer.innerHTML = resultNum;
-      equals.setAttribute("data-result", resultNum);
+    // Display result, finally!
+    preViewer.innerHTML = resultNum;
+    viewer.innerHTML = resultNum;
 
-      // Now reset oldNum & keep result
-      oldNum = 0;
-      theNum = resultNum;
-    };
+    // Convert number input to string!
+    theNum=resultNum.toString();  
+    }
 
     // When: Clear button is pressed. Clear everything
     var clearAll = function() {
-      oldNum = "";
-      theNum = "";
-      viewer.innerHTML = "0";
-      equals.setAttribute("data-result", resultNum);
+        theNum = "";
+        preViewer.innerHTML = "0";
+        viewer.innerHTML = "0";
+        equals.setAttribute("data-result", resultNum);
     };
 
     /* The click events */
 
     // Add click event to numbers
     for (var i = 0, l = nums.length; i < l; i++) {
-      nums[i].onclick = setNum;
+      nums[i].onclick = appendNumber;
     }
 
     // Add click event to operators
     for (var i = 0, l = ops.length; i < l; i++) {
-      ops[i].onclick = moveNum;
+        ops[i].onclick = appendOperation;
+        opsValue.push(ops[i].getAttribute("data-ops"))//Make a array operators.
     }
 
     // Add click event to equal sign
-    equals.onclick = displayNum;
+    equals.onclick = mathOperation;
 
     // Add click event to clear button
-    el("#clear").onclick = clearAll;
-  };
+    clear.onclick = clearAll;
+
+    // Add click event to delete button
+    del.onclick = delDigit;
+};
+
+ 
+
+
