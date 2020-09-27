@@ -8,7 +8,7 @@ In this exercise you are given the legacy code of Payvision Calculator web app. 
 2. It seems the app is buggy... Could you fix it?.:ballot_box_with_check:
 3. Add divide and multiply operations.:ballot_box_with_check:
 4. How would do you test this app?.:black_square_button:
-5. Can you improve the UI/UX?.:ballot_box_with_check
+5. Can you improve the UI/UX?.:ballot_box_with_check:
 
 You are allowed to change as much code as you consider.
 
