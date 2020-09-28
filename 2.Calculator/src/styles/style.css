@@ -70,57 +70,7 @@ h2 {
 .span-two{
     grid-column: span 2;
 }
-/* .calculator-grid .delete{
-    font-size: 0.7em;
-} */
 
-
-/* .calculator::before,
-.calculator::after {
-    content: " ";
-    display: table;
-    }
-
-.calculator::after {
-    clear: both;
-    } */
-
-.broken {
-    animation: broken 2s;
-    transform: translate3d(0, -2000px, 0);
-    opacity: 0;
-  }
-/* 
-  .viewer {
-    float: left;
-    line-height: 3em;
-    text-align: right;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 7.5em;
-    height: 3em; */
-
-    /************/
-    /* border: 2px solid grey;
-    border-radius: 6px;
-    background-color: white;
-    
-    box-shadow: inset 0px 0px 10px 0px grey; */
-  /* } */
-
-/* button {
-    border: 0;
-    background: rgba(42, 50, 113, 0.28);
-    color: rgb(200, 255, 225);
-    cursor: pointer;
-    float: left;
-    font: inherit;
-    margin: 0.25em;
-    width: 2em;
-    height: 2em;
-    transition: all 0.5s;
-    box-shadow: 0px 2px 0px 0px grey;
-  } */
 button:active {
     transform: translate(0px, 3px);
     box-shadow: none;

@@ -1,3 +1,4 @@
+
 window.onload = () =>{
 initCalculator()
 }
@@ -23,10 +24,9 @@ function initCalculator() {
         nums = el(".num"), // List of numbers
         ops = el(".ops"), // List of operators
         theNum = "", // Current number
-        oldNum = "", // First number
         opsValue=[], // Value of operator
-        resultNum, // Result
-        operator; // Batman
+        resultNum // Result
+     
         
 
     //When: operation is valid , let opertion carry on.
@@ -59,7 +59,6 @@ function initCalculator() {
      
     preViewer.innerHTML = theNum; // Display on screen preview current digit number
     
-
     };
 
     // When: Operators is clicked. add the valid operation.  
@@ -88,7 +87,8 @@ function initCalculator() {
 
       // When: Delete button is pressed. Delete digit by digit
     var delDigit = function() {
-        if(theNum.length==1){
+        if(theNum.length<=1){
+            console.log('validacion')
             theNum="0"
             preViewer.innerHTML = theNum; // when: delete all digits  display 0
         }else{
@@ -114,18 +114,23 @@ function initCalculator() {
             resultNum= parseFloat( arr[0])- parseFloat(arr[1]);
         }else if (multiply !=-1){
             arr=theNum.split('x',2)
-            resultNum= parseFloat( arr[0]) * parseFloat(arr[1]);
+            resultNum= parseFloat(( arr[0]) * parseFloat(arr[1]));
         }else if (divide !=-1){
             arr=theNum.split('/',2)
-            resultNum= parseFloat( arr[0])/parseFloat(arr[1]);
+            resultNum= parseFloat(( arr[0])/parseFloat(arr[1]));
+        }else{
+            resultNum=theNum;
         }
 
-         // If NaN or Infinity returned
+        //  If NaN or Infinity returned
       if (!isFinite(resultNum)) {
-        if (isNaN(resultNum)) {
-          // If result is not a number; set off by,
-          resultNum = "You broke it!";
-        } else {
+         
+        if ( isNaN(resultNum)) {
+             console.log('result:',resultNum)
+          // If result is not a number; set by zero,
+          resultNum = 0;
+        }
+        else {
           // If result is infinity, set off by dividing by zero
           resultNum = "Look at what you've done";
           el("#calculator").classList.add("broken"); // Break calculator
@@ -137,15 +142,16 @@ function initCalculator() {
     viewer.innerHTML = resultNum;
 
     // Convert number input to string!
-    theNum=resultNum.toString();  
+    theNum=resultNum.toString();
+
     }
 
     // When: Clear button is pressed. Clear everything
     var clearAll = function() {
-        theNum = "";
-        preViewer.innerHTML = "0";
-        viewer.innerHTML = "0";
-        equals.setAttribute("data-result", resultNum);
+        theNum = "0";
+        resultNum = theNum;
+        preViewer.innerHTML = theNum;
+        viewer.innerHTML = theNum;
     };
 
     /* The click events */
