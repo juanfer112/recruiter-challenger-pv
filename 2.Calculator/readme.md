@@ -4,11 +4,11 @@ In this exercise you are given the legacy code of Payvision Calculator web app. 
 
 ## Your tasks
 
-1. Code review: please list all good/bad practices you find in this application.
-2. It seems the app is buggy... Could you fix it?
-3. Add divide and multiply operations.
-4. How would do you test this app?
-5. Can you improve the UI/UX?
+1. Code review: please list all good/bad practices you find in this application.:ballot_box_with_check:
+2. It seems the app is buggy... Could you fix it?.:ballot_box_with_check:
+3. Add divide and multiply operations.:ballot_box_with_check:
+4. How would do you test this app?.:black_square_button:
+5. Can you improve the UI/UX?.:ballot_box_with_check:
 
 You are allowed to change as much code as you consider.
 
@@ -16,13 +16,26 @@ You are allowed to change as much code as you consider.
 
 1. Configure the application to allow use of keyboard numpad.
 
-### 1. Code review
+### 1. Code review.
 
 Are you a good code reviewer? This would be one of your daily basis tasks.
 
 - Help our team, list good and bad practices you find, identify bugs or defects and suggest improvements. How would you refactorize it?
 
-Please add code inline comments or include them into your readme file.
+Please add code inline comments or include them into your readme file.:ballot_box_with_check:
+
+  Good/Bad practices
+
+  1. To use link to css file from index.html to apply design style.
+  2. to use link to js file from index.html to scripts.
+  3. to code files in modular way to get scalability in aplication.
+  4. To use a framework web para develop to client (AngularJs, ReactJs, Vue).
+  5. To assign in `function()` a name function to specify its functionality, for example `initCalculator()`
+  
+  Bugs
+  1. buttons `Sum` and `substracction` have been inverted. 
+  2. Buttons `zero` y `Three` have been inverted the property data-num. 
+  3. Button `=` make mistake when press it in operation followed set not number up , after math operador and when it just hold el operador =
 
 ### 2. Testing and bug fixing
 
