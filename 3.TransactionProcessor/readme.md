@@ -4,10 +4,10 @@ We want to develop a new transactions processor library to complete online payme
 
 ## Your tasks
 
-- Have a look to the code. Do you miss any class?
-- Complete **./src/TransactionProcessor.js** class.
-- Make sure all tests pass. Would you include more tests?
-- Do you know the pattern used by TransactionProcessor class?
+- Have a look to the code. Do you miss any class?:ballot_box_with_check:
+- Complete **./src/TransactionProcessor.js** class.:ballot_box_with_check:
+- Make sure all tests pass. Would you include more tests?:ballot_box_with_check:
+- Do you know the pattern used by TransactionProcessor class?:ballot_box_with_check:
 
 We strongly recommend the use of: map, filter and reduce (among others).
 

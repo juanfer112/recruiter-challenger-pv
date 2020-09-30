@@ -3,6 +3,7 @@ const TransactionProcessor = require("../src/TransactionProcessor");
 
 let processor = new TransactionProcessor(transactions);
 
+
 describe("TransactionProcessor.isValidTransaction method", () => {
   test("isValidTransaction true - ok", () => {
     expect(TransactionProcessor.isValidTransaction(transactions[0])).toBe(true);
@@ -70,7 +71,9 @@ describe("TransactionProcessor.getTransactionsByBrand method", () => {
   });
 
   test("getTransactionsByBrand with valid brand", () => {
-    expect(processor.getTransactionsByBrand("visa")).toHaveLength(1);
+    //  Added transaction variable, before it was:
+    // expect(processor.getTransactionsByBrand("visa")).toHaveLength(1);
+    expect(processor.getTransactionsByBrand("visa").transactions).toHaveLength(1);
   });
 
   test("getTransactionsByBrand with false brand", () => {
