@@ -4,23 +4,29 @@ This is a Game of Thrones inspired REST API game. You are responsible to create 
 
 ## Your tasks
 
-1. Implement the endpoints in **./src/api.js** file with the most suitable code for players and objects management REST API. You will find detailed instructions in this file.
-2. Write some tests for your code. Use test folder for this purpose.
-3. Answer all commented questions you find in the code.
+1. Implement the endpoints in **./src/api.js** file with the most suitable code for players and objects management REST API. You will find detailed instructions in this file.:ballot_box_with_check:
+2. Write some tests for your code. Use test folder for this purpose.:ballot_box_with_check:
+3. Answer all commented questions you find in the code.:ballot_box_with_check:
+
+**QUESTION: why this endpoint blocks the app(router.js)?**
+there is not answer to client, `res` does not have a property o method called body,body belong to req, if we wish data to client with res could use `res.send()`
+
+**app.disable("x-powered-by"); QUESTION: any reason is this line here?**
+Hide to users the header information of the web application, we are not using express
 
 ### Required endpoints
 
 You have to create endpoints (as many as you consider) to support the following functionality:
 
-1. List all players.
-2. Create player: adds a new player to data source.
-3. Get player by id: returns the player for the given id.
-4. Arm a player with an object in its bag.
-5. Kill a player: sets player health to 0.
-6. Create object: adds a new object to data source.
-7. Get object by id: returns the object for the given id.
-8. Upgrade object: increase/descrease the value of the object given by id with a new value
-9. Destroy object: remove an object from available objects
+1. List all players.:ballot_box_with_check:
+2. Create player: adds a new player to data source.:ballot_box_with_check:
+3. Get player by id: returns the player for the given id.:ballot_box_with_check:
+4. Arm a player with an object in its bag.:ballot_box_with_check:
+5. Kill a player: sets player health to 0.:ballot_box_with_check:
+6. Create object: adds a new object to data source.:ballot_box_with_check:
+7. Get object by id: returns the object for the given id.:ballot_box_with_check:
+8. Upgrade object: increase/descrease the value of the object given by id with a new value.:ballot_box_with_check:
+9. Destroy object: remove an object from available objects.:ballot_box_with_check:
 
 **Bonus:**
 
